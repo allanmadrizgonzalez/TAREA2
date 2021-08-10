@@ -2,19 +2,24 @@ import { styled } from '@emotion/native/types/base'
 import React from 'react'
 import { Button, Image, Text, View, StyleSheet, FlatList } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { useAlbumes } from '../../../contexts/albumes-contexts'
 import { IState } from '../../../models/IState'
 import { actualizarSelectedAlbum } from '../../store/actions/Albu'
 
 
 
 const AlbumsDetails: React.FC = () => {
-    const dispatch = useDispatch();
-    const selectedAlbum = useSelector((state: IState) => state.albumes.selectedAlbum);
-    const albumes = useSelector((state: IState) => state.albumes.albumes);
-    const { userId, id, title, photo } = albumes[selectedAlbum || 0];
+    //const dispatch = useDispatch();
+
+    //const selectedAlbum = useSelector((state: IState) => state.albumes.selectedAlbum);
+    // const albumes = useSelector((state: IState) => state.albumes.albumes);
+    const { albu, selectedAlbum, setSelectedAlbum } = useAlbumes();
+    const { userId, id, title, photo } = albu[selectedAlbum || 0];
 
     const onBackPress = () => {
-        dispatch(actualizarSelectedAlbum(null));
+        //dispatch(actualizarSelectedAlbum(null));
+        setSelectedAlbum(null);
+
     }
     return (
 

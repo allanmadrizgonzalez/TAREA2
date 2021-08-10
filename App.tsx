@@ -16,6 +16,8 @@ import AlbumsReducers from './src/components/store/reducers/albums';
 import TestRedux from './src/components/TestRedux';
 import * as reducers from './src/components/store/reducers'
 import thunk from 'redux-thunk';
+import { AlbumesProvider } from './src/contexts/albumes-contexts';
+import Album from './src/components/organims/Album';
 
 
 const store = createStore(combineReducers(reducers), applyMiddleware(compose(thunk)));
@@ -26,10 +28,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaView>
-
-        <HomeScreen />
-      </SafeAreaView>
+      <AlbumesProvider>
+        <SafeAreaView>
+          <HomeScreen />
+        </SafeAreaView>
+      </AlbumesProvider>
     </Provider>
   );
 };

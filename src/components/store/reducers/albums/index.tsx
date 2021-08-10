@@ -1,5 +1,6 @@
 import { IAction } from "../../../../models/IAction"
 import IAlbums from "../../../../models/IAlbums"
+import IFoto from "../../../../models/IFoto"
 import { ACTUALIZAR_ALBUM, ACTUALIZAR_SELECTED_ALBUM } from "../../actions"
 
 export interface IAlbumReducerState {

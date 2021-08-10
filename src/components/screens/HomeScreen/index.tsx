@@ -6,12 +6,13 @@ import { IState } from '../../../models/IState';
 import AlbumList from '../../molecules/AlbumList';
 
 import AlbumsDetails from '../../molecules/AlbumsDetails';
+import { useAlbumes } from '../../../contexts/albumes-contexts';
 
 
 
 const HomeScreen: React.FC = () => {
-    const selectedAlbum = useSelector((state: IState) => state.albumes.selectedAlbum);
-
+    //const selectedAlbum = useSelector((state: IState) => state.albumes.selectedAlbum);
+    const { selectedAlbum } = useAlbumes();
 
 
     return (
