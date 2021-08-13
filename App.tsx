@@ -18,6 +18,8 @@ import * as reducers from './src/components/store/reducers'
 import thunk from 'redux-thunk';
 import { AlbumesProvider } from './src/contexts/albumes-contexts';
 import Album from './src/components/organims/Album';
+import { Route, Router } from 'react-router-native';
+import Routes from './src/routers/Routes';
 
 
 const store = createStore(combineReducers(reducers), applyMiddleware(compose(thunk)));
@@ -30,7 +32,7 @@ const App = () => {
     <Provider store={store}>
       <AlbumesProvider>
         <SafeAreaView>
-          <HomeScreen />
+          <Routes />
         </SafeAreaView>
       </AlbumesProvider>
     </Provider>

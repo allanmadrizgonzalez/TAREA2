@@ -2,6 +2,7 @@ import { styled } from '@emotion/native/types/base'
 import React from 'react'
 import { Button, Image, Text, View, StyleSheet, FlatList } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-native'
 import { useAlbumes } from '../../../contexts/albumes-contexts'
 import { IState } from '../../../models/IState'
 import { actualizarSelectedAlbum } from '../../store/actions/Albu'
@@ -16,9 +17,12 @@ const AlbumsDetails: React.FC = () => {
     const { albu, selectedAlbum, setSelectedAlbum } = useAlbumes();
     const { userId, id, title, photo } = albu[selectedAlbum || 0];
 
+    const history = useHistory();
+
     const onBackPress = () => {
         //dispatch(actualizarSelectedAlbum(null));
         setSelectedAlbum(null);
+        history.goBack();
 
     }
     return (
